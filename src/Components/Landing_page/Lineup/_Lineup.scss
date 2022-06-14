@@ -1,0 +1,55 @@
+@use "../../variables" as *;
+
+#lineup_container {
+	border-top: 1px solid $black;
+	overflow-y: scroll;
+	height: 85vh;
+	display: grid;
+	.banana {
+		cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='45' height='54' viewport='0 0 100 100' style='fill:black;font-size:27px;'><text y='50%'>🍌</text></svg>")
+				16 0,
+			auto; /*!emojicursor.app*/
+	}
+	.lineup {
+		padding-block-start: 1rem;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		font-family: $display-font;
+		p {
+			display: inline;
+			vertical-align: middle;
+			text-align: center;
+			text-transform: uppercase;
+			line-height: 0rem;
+			font-size: $tiny;
+			span {
+				vertical-align: inherit;
+				text-indent: 0cm;
+				padding-inline: 0.2rem;
+				height: 0rem;
+				font-size: 2rem;
+				font-family: sans-serif;
+			}
+		}
+		:nth-child(10n) {
+			color: $blue;
+			font-size: $small;
+			span {
+				color: $black;
+			}
+		}
+	}
+	#schedule_btn {
+		margin: 1rem;
+		justify-self: end;
+		position: sticky;
+		bottom: 5%;
+	}
+}
+
+@media (min-width: 1000px) {
+	#lineup_container {
+		padding-inline: 3rem;
+	}
+}

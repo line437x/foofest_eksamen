@@ -1,0 +1,56 @@
+@use "../variables" as *;
+
+#specific_artist {
+	figure {
+		img {
+			margin: 0;
+		}
+		font-family: $paragraph-font;
+		font-size: x-small;
+		font-style: italic;
+		text-align: center;
+		margin: 0;
+	}
+	p {
+		font-family: $paragraph-font;
+	}
+	#player_container,
+	#band_text {
+		background-color: $white;
+	}
+	.desciption {
+		display: grid;
+		justify-content: center;
+		padding-inline: 1rem;
+	}
+	.band_info {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		div {
+			padding-block-end: 2rem;
+		}
+		h4 {
+			height: 0.5rem;
+			font-size: $tiny;
+		}
+		p {
+			margin-block: 0;
+		}
+	}
+	iframe {
+		width: 100%;
+		position: sticky;
+		bottom: 0;
+	}
+}
+@media (min-width: 700px) {
+	#specific_artist {
+		min-height: 85vh;
+		display: grid;
+		grid-template-columns: 1.5fr 1fr;
+		iframe {
+			position: sticky;
+			height: 380px;
+		}
+	}
+}

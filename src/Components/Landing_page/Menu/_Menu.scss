@@ -1,0 +1,77 @@
+@use "../../variables" as *;
+
+.navigation {
+	a {
+		text-decoration: none;
+		color: $black;
+	}
+	ul {
+		font-family: $display-font;
+	}
+	li {
+		list-style: none;
+		background-color: $white;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		h3 {
+			padding-inline: 2rem;
+			line-height: 2rem;
+		}
+
+		.pic1 {
+			height: 5rem;
+			width: 30%;
+			background-image: url(../../../img/coffee.png);
+			background-size: contain;
+		}
+		.pic2 {
+			height: 5rem;
+			width: 30%;
+			background-image: url(../../../img/beer.png);
+			background-size: contain;
+		}
+		.pic3 {
+			height: 4rem;
+			width: 25%;
+			background-image: url(../../../img/milk.png);
+			background-size: contain;
+		}
+	}
+}
+@media (min-width: 700px) {
+	.navigation {
+		ul {
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr 1fr;
+			height: 85vh;
+			h3 {
+				font-size: $mix1;
+			}
+		}
+		li {
+			height: 85vh;
+			width: 100%;
+			writing-mode: vertical-rl;
+			:hover {
+				color: $blue;
+			}
+			.pic1 {
+				height: 50%;
+				width: 100%;
+				background-size: cover;
+			}
+			.pic2 {
+				height: 50%;
+				width: 100%;
+				background-size: cover;
+			}
+			.pic3 {
+				height: 30%;
+				width: 90%;
+				background-size: cover;
+				background-position-y: bottom;
+			}
+		}
+	}
+}

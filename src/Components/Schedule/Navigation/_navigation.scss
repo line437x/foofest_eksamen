@@ -1,0 +1,37 @@
+@use "../../variables" as *;
+
+#filter_container {
+	ul {
+		padding-block: 1rem;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem;
+		line-height: 1.3rem;
+		justify-content: center;
+		list-style: none;
+		font-family: $display-font;
+		font-size: $medium;
+		background-color: $white;
+		margin: 0;
+		padding-inline: 1rem;
+		& .filter_active {
+			color: $blue !important;
+		}
+	}
+	li {
+		cursor: pointer;
+	}
+	li:hover {
+		color: $blue;
+	}
+	li:focus {
+		color: $blue;
+	}
+}
+@media (min-width: 700px) {
+	#filter_container {
+		ul {
+			justify-content: space-evenly;
+		}
+	}
+}

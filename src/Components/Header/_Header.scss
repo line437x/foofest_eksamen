@@ -1,0 +1,19 @@
+@use "../variables" as *;
+
+.header {
+	font-family: $display-font;
+	display: flex;
+	padding-inline: 1.5rem;
+	align-items: center;
+
+	p {
+		width: 100%;
+		text-align: end;
+		max-width: none;
+	}
+}
+@media (min-width: 700px) {
+	.header {
+		height: 15vh;
+	}
+}

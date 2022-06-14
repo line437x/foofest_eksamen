@@ -1,0 +1,73 @@
+@use "./Components/Header/Header";
+@use "./Components/Footer/Footer";
+@use "./Components/Landing_page/Landing";
+@use "./Components/Buttons/Button";
+@use "./Components/Banner/Banner";
+@use "./Components/Schedule/Schedule";
+// @use "./Components/Card/Card";
+@use "./Components/Festival_map/FestivalMap";
+@use "./Components/Specific_artist/Specific_artist";
+@use "./Components/Playing_now/Playing_now";
+
+@use "./Components/variables" as *;
+
+// * {
+// 	cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='45' height='54' viewport='0 0 100 100' style='fill:black;font-size:27px;'><text y='50%'>🍌</text></svg>") 16 0, auto; /*!emojicursor.app*/
+// }
+
+body {
+	background-color: $white;
+	border: 1px solid $black;
+	min-height: 100vh;
+}
+img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+.grid {
+	margin: 0;
+	padding: 0;
+	display: grid;
+	background-color: $black;
+	border: 1px solid $black;
+	gap: 1px;
+}
+
+.link {
+	text-decoration-line: none;
+	color: $black;
+}
+
+h1,
+h2,
+h3,
+h4,
+button {
+	font-family: $display-font;
+}
+
+h1,
+h2 {
+	font-size: $large;
+}
+
+h3 {
+	font-size: $medium;
+}
+h4 {
+	font-size: $small;
+}
+p {
+	max-width: 54ch;
+	font-size: $small;
+}
+button {
+	font-size: $mix2;
+}
+
+.link,
+a {
+	cursor: pointer;
+}

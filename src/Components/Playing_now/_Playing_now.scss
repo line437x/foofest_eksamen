@@ -1,0 +1,49 @@
+@use "./Navigation/Navigation";
+@use "./Current_artist/Current";
+@use "./Next_artist/Next";
+@use "./Sidebar/Sidebar";
+@use "../variables" as *;
+
+#playing_now {
+	article {
+		text-align: center;
+
+		h2 {
+			font-size: $large;
+			margin: 0;
+		}
+		p {
+			font-size: $tiny;
+			padding-inline: 1rem;
+			margin-block-end: 2.5rem;
+			max-width: none;
+		}
+	}
+	.content {
+		margin-inline: 1rem;
+		h2 {
+			font-size: $medium;
+		}
+		span {
+			color: $yellow;
+		}
+	}
+}
+
+.break {
+	background-color: rgb(189, 189, 189);
+}
+@media (min-width: 700px) {
+	#playing_now {
+		.content_container {
+			display: grid;
+			grid-template-columns: 3fr auto;
+			.content {
+				display: flex;
+				justify-content: center;
+				gap: 5rem;
+				margin: 5rem;
+			}
+		}
+	}
+}
