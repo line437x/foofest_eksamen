@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { BandsContext } from "../../contexts/bandContext";
 import Button from "../Buttons/Button";
+import { motion } from "framer-motion";
 
 export default function SpecificArtist() {
 	const location = useLocation();
@@ -15,8 +16,22 @@ export default function SpecificArtist() {
 		return band.id === params.artistid;
 	})[0];
 
+	const containerVariants = {
+		hidden: {
+			opacity: 0,
+		},
+		visible: {
+			opacity: 1,
+			transition: { delay: 0.5, duration: 1.5 },
+		},
+		exit: {
+			x: "-100vw",
+			transition: { ease: "easeInOut" },
+		},
+	};
+
 	return (
-		<div id="specific_artist">
+		<motion.div id="specific_artist" variants={containerVariants} initial="hidden" animate="visible" exit="exit">
 			<div id="band_text" className="grid">
 				<Button></Button>
 				<div className="desciption">
@@ -46,6 +61,6 @@ export default function SpecificArtist() {
 				</figure>
 				<iframe src="https://open.spotify.com/embed/playlist/5nqguiHEZDhFDs0szDS8eu?utm_source=generator&theme=0" width="100%" height="80" frameBorder="0" allowFullScreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
 			</div>
-		</div>
+		</motion.div>
 	);
 }

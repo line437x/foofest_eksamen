@@ -6,6 +6,7 @@ import Next from "./Next_artist/Next";
 import Sidebar from "./Sidebar/Sidebar";
 import { useState, useContext, useEffect } from "react";
 import { ScheduleContext } from "../../contexts/scheduleContext";
+import { motion } from "framer-motion";
 
 export default function PlayingNow() {
 	const [scene, setScene] = useState("Jotunheim");
@@ -15,15 +16,26 @@ export default function PlayingNow() {
 	const [playingNext, setPlayingNext] = useState([]);
 	const [firstMount, setFirstMount] = useState(true);
 
+	const containerVariants = {
+		hidden: {
+			opacity: 0,
+		},
+		visible: {
+			opacity: 1,
+			transition: { delay: 0.5, duration: 1.5 },
+		},
+		exit: {
+			x: "-100vw",
+			transition: { ease: "easeInOut", duration: 1 },
+		},
+	};
+
 	function getPlayingNow(day, time) {
 		const daySchedule = sceneSchedule[day];
 		daySchedule.map((act) => {
 			const actTimeStart = Number(act.start.substring(0, 2));
 			const actTimeEnd = Number(act.end.substring(0, 2));
-			if (
-				(actTimeStart === time && actTimeEnd === time + 2) ||
-				(actTimeStart === time - 1 && actTimeEnd === time + 1)
-			) {
+			if ((actTimeStart === time && actTimeEnd === time + 2) || (actTimeStart === time - 1 && actTimeEnd === time + 1)) {
 				setPlayingNow(act);
 			}
 			return act;
@@ -137,7 +149,7 @@ export default function PlayingNow() {
 	}, [scene]);
 
 	return (
-		<div id="playing_now">
+		<motion.div id="playing_now" variants={containerVariants} initial="hidden" animate="visible" exit="exit">
 			<Banner banner="PLAYING NOW"></Banner>
 			<Navigation setScene={setScene}></Navigation>
 			<div className="content_container">
@@ -145,10 +157,7 @@ export default function PlayingNow() {
 					<Button></Button>
 					<article>
 						<h2>{scene}</h2>
-						<p>
-							Browse the stages and we will make sure that you are always updated on now and whos
-							next up.
-						</p>
+						<p>Browse the stages and we will make sure that you are always updated on now and whos next up.</p>
 					</article>
 					<div className="content">
 						<div>
@@ -165,6 +174,6 @@ export default function PlayingNow() {
 				</section>
 				<Sidebar></Sidebar>
 			</div>
-		</div>
+		</motion.div>
 	);
 }

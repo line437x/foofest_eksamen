@@ -4,11 +4,25 @@ import Banner from "../Banner/Banner";
 import Navigation from "./Navigation/Navigation";
 import Slider from "./Slider/Slider";
 import Button from "../Buttons/Button";
+import { motion } from "framer-motion";
 
 export default function Schedule() {
 	const [day, setDay] = useState("mon");
-
 	let dayPicked = getDay();
+
+	const containerVariants = {
+		hidden: {
+			opacity: 0,
+		},
+		visible: {
+			opacity: 1,
+			transition: { delay: 0.5, duration: 1.5 },
+		},
+		exit: {
+			x: "-100vw",
+			transition: { ease: "easeInOut", duration: 1 },
+		},
+	};
 
 	function getDay() {
 		let picked;
@@ -42,7 +56,7 @@ export default function Schedule() {
 	}
 
 	return (
-		<div className="schedule">
+		<motion.div className="schedule" variants={containerVariants} initial="hidden" animate="visible" exit="exit">
 			<Banner banner="SCHEDULE"></Banner>
 			<Navigation setDay={setDay} day={day}></Navigation>
 			<Button></Button>
@@ -51,6 +65,6 @@ export default function Schedule() {
 				<p>There are 3 stages at FOOFEST Festival: Midgard, Jotunheim and Vanaheim. Choose which day you want to see the schedule over, and scroll down the page to browse all the acts. Then you’ll know when to FOO, and when not to.</p>
 			</div>
 			<Slider day={day}></Slider>
-		</div>
+		</motion.div>
 	);
 }

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useEffect, useState, useContext, useRef } from "react";
+import { useEffect, useState, useContext } from "react";
 import { BandsContext } from "../../contexts/bandContext";
 
 export default function Act(props) {
@@ -36,7 +36,6 @@ export default function Act(props) {
 					<p>
 						{props.start}-{props.end}
 					</p>
-					{/* <a href="">Show details</a> */}
 				</article>
 			</Link>
 		</div>

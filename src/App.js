@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import "./main.scss";
 import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
@@ -14,12 +14,13 @@ import { useEffect, useContext } from "react";
 import { BandsContext } from "./contexts/bandContext";
 import { ScheduleContext } from "./contexts/scheduleContext";
 import { v4 as uuidv4 } from "uuid";
+import { AnimatePresence } from "framer-motion";
 
 function App() {
 	const { bands, setBands } = useContext(BandsContext);
 	const { schedule, setSchedule } = useContext(ScheduleContext);
 
-	// const [event, setEvent] = useState(false);
+	const location = useLocation();
 
 	useEffect(() => {
 		const getBands = async () => {
@@ -53,16 +54,18 @@ function App() {
 	return (
 		<div id="app">
 			<Header></Header>
-			<Routes>
-				<Route path="/" element={<Landing />} />
-				<Route path="/lineup" element={<Lineup />} />
-				<Route path="/schedule" element={<Schedule />} />
-				<Route path="/playing" element={<PlayingNow />} />
-				<Route path="/festivalmap" element={<FestivalMap />} />
-				<Route path="/artist" element={<SpecificArtist />}>
-					<Route path=":artistid" element={<SpecificArtist />} />
-				</Route>
-			</Routes>
+			<AnimatePresence>
+				<Routes location={location} key={location.key}>
+					<Route path="/" element={<Landing />} />
+					<Route path="/lineup" element={<Lineup />} />
+					<Route path="/schedule" element={<Schedule />} />
+					<Route path="/playing" element={<PlayingNow />} />
+					<Route path="/festivalmap" element={<FestivalMap />} />
+					<Route path="/artist" element={<SpecificArtist />}>
+						<Route path=":artistid" element={<SpecificArtist />} />
+					</Route>
+				</Routes>
+			</AnimatePresence>
 			<Footer></Footer>
 		</div>
 	);
