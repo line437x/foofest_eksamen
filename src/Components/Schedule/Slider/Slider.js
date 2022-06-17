@@ -1,14 +1,11 @@
 import Act from "../Act";
 import { useContext } from "react";
-// import { BandsContext } from "../../../contexts/bandContext";
 import { ScheduleContext } from "../../../contexts/scheduleContext";
 import { v4 as uuidv4 } from "uuid";
 
 export default function Slider(props) {
-	// const { bands, setBands } = useContext(BandsContext);
 	const { schedule } = useContext(ScheduleContext);
 
-	// console.log(schedule.Midgard);
 	const midgard = schedule.Midgard[props.day];
 	const jotunheim = schedule.Jotunheim[props.day];
 	const vanaheim = schedule.Vanaheim[props.day];

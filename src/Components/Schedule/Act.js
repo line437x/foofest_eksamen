@@ -15,7 +15,7 @@ export default function Act(props) {
 			setBandId(result[0].id);
 			getLogos(result[0]);
 		}
-	}, []);
+	}, [bands]);
 
 	// Find and set the logo for the band
 	function getLogos(band) {
