@@ -1,6 +1,6 @@
 import Navigation from "./Menu/Menu";
 import Lineup from "./Lineup/Lineup";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 export default function LandingPage() {
 	const containerVariants = {
@@ -17,11 +17,9 @@ export default function LandingPage() {
 		},
 	};
 	return (
-		<AnimatePresence>
-			<motion.div id="content" variants={containerVariants} initial="hidden" animate="visible" exit="exit">
-				<Navigation className="navigation"></Navigation>
-				<Lineup className="lineup"></Lineup>
-			</motion.div>
-		</AnimatePresence>
+		<motion.div id="content" variants={containerVariants} initial="hidden" animate="visible" exit="exit">
+			<Navigation className="navigation"></Navigation>
+			<Lineup className="lineup"></Lineup>
+		</motion.div>
 	);
 }

@@ -1,4 +1,4 @@
-import { Routes, Route, useLocation, Switch } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import "./main.scss";
 import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
@@ -46,9 +46,6 @@ function App() {
 			setSchedule(data);
 		};
 		fetchSchedule();
-
-		// setInterval(() => {
-		// }, 10000);
 	}, []);
 
 	return (
