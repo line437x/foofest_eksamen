@@ -11,6 +11,10 @@
 	span {
 		text-decoration: underline;
 	}
+	a {
+		text-decoration-line: none;
+		color: $black;
+	}
 	.icons {
 		display: flex;
 		gap: 1rem;

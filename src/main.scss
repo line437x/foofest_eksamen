@@ -20,6 +20,7 @@ body {
 	border: 1px solid $black;
 	min-height: 100vh;
 }
+
 img {
 	display: block;
 	width: 100%;
@@ -43,8 +44,7 @@ img {
 h1,
 h2,
 h3,
-h4,
-button {
+h4 {
 	font-family: $display-font;
 }
 
@@ -64,7 +64,8 @@ p {
 	font-size: $small;
 }
 button {
-	font-size: $mix2;
+	font-size: $small;
+	font-family: $paragraph-font;
 }
 
 .link,
